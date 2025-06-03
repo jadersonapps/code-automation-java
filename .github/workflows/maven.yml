@@ -1,0 +1,62 @@
+name: Java Test Automation
+
+on:
+  workflow_dispatch:
+    inputs:
+      testTag:
+        description: 'Tag do teste para executar (ex: regressivo, smoke)'
+        required: true
+        default: 'regressivo'
+      browser:
+        description: 'Navegador para rodar os testes (chrome/firefox)'
+        required: true
+        default: 'chrome'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: maven:3.8.6-openjdk-11
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup browser drivers
+      run: |
+        if [ "${{ github.event.inputs.browser }}" = "chrome" ]; then
+          sudo apt-get update
+          sudo apt-get install -y wget unzip
+          wget -q https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip
+          sudo mv chromedriver /usr/local/bin/
+          sudo chmod +x /usr/local/bin/chromedriver
+        elif [ "${{ github.event.inputs.browser }}" = "firefox" ]; then
+          sudo apt-get update
+          sudo apt-get install -y wget unzip firefox-geckodriver
+        else
+          echo "Navegador não suportado"
+          exit 1
+        fi
+
+    - name: Run tests with Maven filtered by tag
+      env:
+        BROWSER: ${{ github.event.inputs.browser }}
+        TEST_TAG: ${{ github.event.inputs.testTag }}
+      run: |
+        echo "Executando testes com tag: $TEST_TAG no navegador $BROWSER"
+        # Exemplo com Maven Failsafe plugin e surefire que aceita tags de teste via parâmetro
+        mvn clean test -Dbrowser=$BROWSER -Dgroups=$TEST_TAG
+
+    - name: Criar pasta logs
+      run: mkdir -p logs
+
+    - name: Mover relatório para logs
+      run: mv target/surefire-reports/report.html logs/report.html || echo "Relatório não encontrado"
+
+    - name: Upload do relatório
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-report
+        path: logs/report.html

@@ -1,7 +1,9 @@
 package br.com.codegroup;
 
+import br.com.codegroup.config.DriverFactory;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
 /**
@@ -19,9 +21,13 @@ import org.junit.runner.RunWith;
                 "br.com.codegroup.config.Logger",
                 "br.com.codegroup.config.Listener"
         },
-        tags = "@Regressivo",
+        tags = "@Autocomplete",
         monochrome = true
 )
 public class RunAutomation {
-        // Runner class - no methods needed
+
+        @AfterClass
+        public static void teardownSuite() {
+                DriverFactory.quitDriver();
+        }
 }

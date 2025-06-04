@@ -65,7 +65,7 @@ public class DriverFactory {
      *
      * @return a WebDriverWait instance
      */
-    public static WebDriverWait getWait() {
+    public static WebDriverWait getWait() throws InterruptedException {
         if (wait == null) {
             int timeout = 10;
             try {
@@ -75,6 +75,7 @@ public class DriverFactory {
             }
             wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
         }
+        Thread.sleep(5);
         return wait;
     }
 

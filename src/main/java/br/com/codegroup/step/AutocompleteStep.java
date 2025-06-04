@@ -1,36 +1,35 @@
 package br.com.codegroup.step;
 
 import br.com.codegroup.config.DriverFactory;
-import br.com.codegroup.page.HomePage;
+import br.com.codegroup.page.AutocompletePage;
 import io.cucumber.java.pt.Dado;
-import io.cucumber.java.pt.Então;
-import io.cucumber.java.pt.Quando;
+import io.cucumber.java.pt.*;
 
 public class AutocompleteStep {
 
     @Dado("que o navegador esta carregado na pagina inicial")
-    public void queONavegadorEstaCarregadoNaPaginaInicial() {
+    public void queONavegadorEstaCarregadoNaPaginaInicial() throws InterruptedException {
         DriverFactory.initializeDriver();
-        HomePage.navigateToHomePage();
+        AutocompletePage.navigateToHomePage();
     }
 
     @Quando("o usuario digita {string} na barra de pesquisa")
     public void oUsuarioDigitaNaBarraDePesquisa(String termo) {
-        HomePage.typeInSearchBar(termo);
+        AutocompletePage.typeInSearchBar(termo);
     }
 
     @Quando("o usuario clica na barra de pesquisa sem digitar")
     public void oUsuarioClicaNaBarraDePesquisaSemDigitar() {
-        HomePage.clickSearchBar();
+        AutocompletePage.clickSearchBar();
     }
 
     @Então("devem ser exibidas sugestoes relacionadas")
     public void devemSerExibidasSugestoesRelacionadas() throws InterruptedException {
-        HomePage.assertSuggestionsAreVisible();
+        AutocompletePage.assertSuggestionsAreVisible();
     }
 
     @Então("nenhuma sugestao deve ser exibida")
     public void nenhumaSugestaoDeveSerExibida() throws InterruptedException {
-        HomePage.assertSuggestionsAreNotVisible();
+        AutocompletePage.assertSuggestionsAreNotVisible();
     }
 }

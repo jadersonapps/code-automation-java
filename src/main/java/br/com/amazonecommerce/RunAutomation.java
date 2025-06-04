@@ -1,6 +1,6 @@
-package br.com.codegroup;
+package br.com.amazonecommerce;
 
-import br.com.codegroup.config.DriverFactory;
+import br.com.amazonecommerce.config.DriverFactory;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.AfterClass;
@@ -13,13 +13,13 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {
-                "br.com.codegroup.step",
-                "br.com.codegroup.config"
+                "br.com.amazonecommerce.step",
+                "br.com.amazonecommerce.config"
         },
         plugin = {
                 "pretty",
-                "br.com.codegroup.config.Logger",
-                "br.com.codegroup.config.Listener"
+                "br.com.amazonecommerce.config.Logger",
+                "br.com.amazonecommerce.config.Listener"
         },
         tags = "@Autocomplete",
         monochrome = true

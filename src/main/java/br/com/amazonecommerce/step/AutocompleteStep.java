@@ -1,7 +1,7 @@
-package br.com.codegroup.step;
+package br.com.amazonecommerce.step;
 
-import br.com.codegroup.config.DriverFactory;
-import br.com.codegroup.page.AutocompletePage;
+import br.com.amazonecommerce.config.DriverFactory;
+import br.com.amazonecommerce.page.AutocompletePage;
 import io.cucumber.java.pt.Dado;
 import io.cucumber.java.pt.*;
 

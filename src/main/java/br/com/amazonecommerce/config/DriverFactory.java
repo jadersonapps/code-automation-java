@@ -1,6 +1,6 @@
-package br.com.codegroup.config;
+package br.com.amazonecommerce.config;
 
-import br.com.codegroup.util.ConfigReader;
+import br.com.amazonecommerce.util.ConfigReader;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

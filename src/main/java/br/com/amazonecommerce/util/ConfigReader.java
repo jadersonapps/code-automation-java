@@ -1,4 +1,4 @@
-package br.com.codegroup.util;
+package br.com.amazonecommerce.util;
 
 import java.io.IOException;
 import java.io.InputStream;

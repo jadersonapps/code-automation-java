@@ -1,4 +1,4 @@
-package br.com.codegroup.config;
+package br.com.amazonecommerce.config;
 
 import io.cucumber.plugin.ConcurrentEventListener;
 import io.cucumber.plugin.event.*;

@@ -1,4 +1,4 @@
-package br.com.codegroup.util;
+package br.com.amazonecommerce.util;
 
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.ExtentTest;

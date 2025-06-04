@@ -1,11 +1,10 @@
-package br.com.codegroup.config;
+package br.com.amazonecommerce.config;
 
-import br.com.codegroup.util.Commons;
+import br.com.amazonecommerce.util.Commons;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.ExtentTest;
 import io.cucumber.java.*;
 import io.cucumber.java.Scenario;
-import org.junit.AfterClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 

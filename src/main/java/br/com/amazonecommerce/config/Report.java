@@ -1,4 +1,4 @@
-package br.com.codegroup.config;
+package br.com.amazonecommerce.config;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
@@ -18,7 +18,7 @@ public class Report {
      */
     public static ExtentReports getInstance() {
         if (extent == null) {
-            executionFolder = br.com.codegroup.util.Commons.createExecutionDirectory();
+            executionFolder = br.com.amazonecommerce.util.Commons.createExecutionDirectory();
             createInstance(executionFolder + "/report.html");
         }
         return extent;

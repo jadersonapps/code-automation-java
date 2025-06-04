@@ -1,8 +1,8 @@
-package br.com.codegroup.page;
+package br.com.amazonecommerce.page;
 
 import org.junit.Assert;
-import br.com.codegroup.config.DriverFactory;
-import br.com.codegroup.util.ConfigReader;
+import br.com.amazonecommerce.config.DriverFactory;
+import br.com.amazonecommerce.util.ConfigReader;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

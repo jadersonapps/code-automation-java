@@ -14,11 +14,19 @@ import java.util.List;
  */
 public class HomePage {
 
-    private static final By SEARCH_BAR = By.id("twotabsearchtextbox");
-    private static final By AUTOCOMPLETE_SUGGESTIONS = By.cssSelector("div.autocomplete-results-container div.s-suggestion");
+    /**
+     * Locator for the search input bar.
+     */
+    public static final By INPUT_FIELD_SEARCH_BAR = By.id("twotabsearchtextbox");
 
     /**
-     * Navigates to the home page URL and waits for the title to contain "Amazon".
+     * Locator for autocomplete suggestion elements.
+     */
+    public static final By LIST_AUTOCOMPLETE_SUGGESTIONS = By.cssSelector("div.autocomplete-results-container div.s-suggestion");
+
+    /**
+     * Navigates to the Amazon home page using the URL configured in config.properties,
+     * waits until the title contains "Amazon", and refreshes the page.
      */
     public static void navigateToHomePage() {
         DriverFactory.getDriver().get(ConfigReader.get("browserUrl"));
@@ -27,30 +35,31 @@ public class HomePage {
     }
 
     /**
-     * Types the given text into the search bar, clearing it first.
+     * Types the given text into the search bar after clearing any existing text.
      *
-     * @param text Text to enter in the search bar.
+     * @param text Text to be entered in the search bar.
      */
     public static void typeInSearchBar(String text) {
-        WebElement input = DriverFactory.getDriver().findElement(SEARCH_BAR);
+        WebElement input = DriverFactory.getDriver().findElement(INPUT_FIELD_SEARCH_BAR);
         input.clear();
         input.sendKeys(text);
     }
 
     /**
-     * Clicks on the search bar.
+     * Clicks on the search bar element.
      */
     public static void clickSearchBar() {
-        DriverFactory.getDriver().findElement(SEARCH_BAR).click();
+        DriverFactory.getDriver().findElement(INPUT_FIELD_SEARCH_BAR).click();
     }
 
     /**
-     * Validates that autocomplete suggestions are visible.
+     * Asserts that autocomplete suggestions are visible.
+     * Fails the test if no suggestions are found.
      */
     public static void assertSuggestionsAreVisible() {
         try {
-            DriverFactory.getWait().until(ExpectedConditions.visibilityOfElementLocated(AUTOCOMPLETE_SUGGESTIONS));
-            List<WebElement> suggestions = DriverFactory.getDriver().findElements(AUTOCOMPLETE_SUGGESTIONS);
+            DriverFactory.getWait().until(ExpectedConditions.visibilityOfElementLocated(LIST_AUTOCOMPLETE_SUGGESTIONS));
+            List<WebElement> suggestions = DriverFactory.getDriver().findElements(LIST_AUTOCOMPLETE_SUGGESTIONS);
             Assert.assertFalse("Expected suggestions to be visible, but none were found.", suggestions.isEmpty());
         } catch (Exception e) {
             Assert.fail("Error while validating visible suggestions: " + e.getMessage());
@@ -58,12 +67,13 @@ public class HomePage {
     }
 
     /**
-     * Validates that autocomplete suggestions are not visible.
+     * Asserts that autocomplete suggestions are not visible.
+     * Fails the test if any suggestion is still visible.
      */
     public static void assertSuggestionsAreNotVisible() {
         try {
-            DriverFactory.getWait().until(ExpectedConditions.invisibilityOfElementLocated(AUTOCOMPLETE_SUGGESTIONS));
-            List<WebElement> suggestions = DriverFactory.getDriver().findElements(AUTOCOMPLETE_SUGGESTIONS);
+            DriverFactory.getWait().until(ExpectedConditions.invisibilityOfElementLocated(LIST_AUTOCOMPLETE_SUGGESTIONS));
+            List<WebElement> suggestions = DriverFactory.getDriver().findElements(LIST_AUTOCOMPLETE_SUGGESTIONS);
             Assert.assertTrue("Expected no suggestions to be visible, but some were found.", suggestions.isEmpty());
         } catch (Exception e) {
             Assert.fail("Error while validating suggestions are not visible: " + e.getMessage());

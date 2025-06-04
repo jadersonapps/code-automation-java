@@ -134,9 +134,3 @@ ou clique no ícone ▶️ (play) que aparece ao lado do nome da classe.
 ```bash
 c:\automacao\code-automation-java\logs
 ```
-
-4. Os relatórios podem ser encontrados em:
-
-```
-c:\automacao\code-automation-java\logs
-```

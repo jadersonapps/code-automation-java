@@ -17,15 +17,23 @@ import java.util.Properties;
  * }</pre>
  *
  * Thread-safe and loads properties once at class loading.
- *
- * @author
  */
 public final class ConfigReader {
 
+    /**
+     * Holds all loaded properties from the config.properties file.
+     */
     private static final Properties properties = new Properties();
+
+    /**
+     * The name and path of the configuration file.
+     */
     private static final String CONFIG_FILE_NAME = "/config.properties";
 
-    // Static block to load properties once when the class is loaded
+    /**
+     * Static block to load properties from the config file at class load time.
+     * Ensures the file is loaded once and reused during the application lifecycle.
+     */
     static {
         try (InputStream input = ConfigReader.class.getResourceAsStream(CONFIG_FILE_NAME)) {
             if (input == null) {
@@ -37,7 +45,10 @@ public final class ConfigReader {
         }
     }
 
-    // Private constructor to prevent instantiation
+    /**
+     * Private constructor to prevent instantiation.
+     * This class is intended to be used statically.
+     */
     private ConfigReader() {
         throw new UnsupportedOperationException("Utility class - should not be instantiated.");
     }

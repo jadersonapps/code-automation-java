@@ -1,4 +1,4 @@
-package br.com.codegroup.step.amazon;
+package br.com.codegroup.step;
 
 import br.com.codegroup.config.DriverFactory;
 import br.com.codegroup.page.HomePage;

@@ -1,4 +1,4 @@
-name: Java Test Automation
+name: Continuos Testing
 
 on:
   workflow_dispatch:

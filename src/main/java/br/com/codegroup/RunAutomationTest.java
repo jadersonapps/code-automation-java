@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
  */
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/features",
+        features = "src/test/resources/features",
         glue = {
                 "br.com.codegroup.step",
                 "br.com.codegroup.config"
@@ -22,6 +22,6 @@ import org.junit.runner.RunWith;
         tags = "@Regressivo",
         monochrome = true
 )
-public class RunAutomation {
+public class RunAutomationTest {
         // Runner class - no methods needed
 }

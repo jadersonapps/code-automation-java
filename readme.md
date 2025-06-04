@@ -8,7 +8,7 @@ Este projeto utiliza **Java com Cucumber** para automação de testes. Ele abran
 
 A estrutura completa do projeto, incluindo a organização dos diretórios, scripts, configurações e documentação sobre a execução dos testes, pode ser encontrada no nosso espaço de documentação interna. Visite a página do Confluence no link abaixo:
 
-🔗 [Documentação detalhada do projeto](https://)
+🔗 [Documentação detalhada do projeto](https://github.com/jadersonapps/code-automation-java/blob/main/documentacao.md)
 
 
 ---

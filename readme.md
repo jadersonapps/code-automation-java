@@ -1,4 +1,4 @@
-![Regressivo - Continuous Testing](![Regressivo - Continuous Testing](https://github.com/jadersonapps/code-automation-java/actions/workflows/QaOps.yaml/badge.svg?branch=master)
+![Regressivo - Continuous Testing](https://github.com/jadersonapps/code-automation-java/actions/workflows/QaOps.yml/badge.svg?branch=main)
 
 # Projeto de Testes Automatizados com Java e Cucumber
 

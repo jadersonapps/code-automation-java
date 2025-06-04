@@ -93,10 +93,14 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>3.2.5</version>
-        <!-- Sem includes para deixar usar padrão de classes *Test.java -->
+        <version>3.0.0</version>
+        <configuration>
+          <includes>
+            <include>**/*RunAutomation.java</include>
+          </includes>
+        </configuration>
       </plugin>
+
     </plugins>
   </build>
-
 </project>

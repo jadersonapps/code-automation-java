@@ -113,18 +113,26 @@ cd code-automation-java
 ---
 
 ## Executando os Testes Localmente
+Caso o comando mvn test não funcione corretamente no terminal, siga as instruções abaixo para executar os testes diretamente pelo IntelliJ IDEA:
 
-1. Abra o terminal.
-2. Navegue até a pasta raiz do projeto:
+1. Abra o IntelliJ IDEA.
+
+2. Importe o projeto conforme explicado anteriormente.
+
+3. No painel à esquerda (Project), navegue até o seguinte caminho:
 
 ```bash
-cd c:\automacao\code-automation-java
+src > test > java > runner > RunAutomation.java
 ```
+4. Clique com o botão direito sobre a classe RunAutomation e selecione Run 'RunAutomation.main()'
+ou clique no ícone ▶️ (play) que aparece ao lado do nome da classe.
 
-3. Execute os testes com Maven:
+5. Os testes serão executados e os resultados estarão disponíveis no console do IntelliJ.
+
+6. Os relatórios de execução também podem ser encontrados na pasta:
 
 ```bash
-mvn test
+c:\automacao\code-automation-java\logs
 ```
 
 4. Os relatórios podem ser encontrados em:

@@ -22,6 +22,6 @@ import org.junit.runner.RunWith;
         tags = "@Regressivo",
         monochrome = true
 )
-public class RunAutomationTest {
+public class RunAutomation {
         // Runner class - no methods needed
 }
